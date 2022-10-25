@@ -5,18 +5,15 @@ public class Main {
     // NOTE: notice this variable has yet to be set equal to anything, this is done on line 13
     private Scanner input;
 
-    // Variable stores the input recieved from our input instance for easy access
     private String inputValue;
 
     // Variable to store the users name once they provide it
     private String name;
-
-    // Keeps track of the current location, 0 is the beginning of the dungeon
-    private int currentPosition = 0;
-
-    private Boolean isDead = false;
-    private Boolean hasWon = false;
-
+    boolean hasWon = false;
+    boolean isDead = false;
+    int currentPosition = 0;
+    boolean hasSword = false;
+    boolean hasPotion = false;
     public Main() {
         // ASSIGNMENT A:
         System.out.println("Hello world!");
@@ -45,7 +42,7 @@ public class Main {
                     } else {
                         System.out.println("Invalid direction. Only \"N\" is valid");
                     }
-                    break;
+                        break;
                 case 1:
                     System.out.println("You are standing at a hallway intersection that moves in all four directions; north, south, east and west.");
                     inputValue = input.nextLine();
@@ -69,6 +66,7 @@ public class Main {
                         System.out.println("As you enter the room a small candle on the table catches your attention.");
                         System.out.println("As you are mesmerized by the flame, you fail to notice the witch who casts a spell to turn you to stone.");
                         System.out.println("You will forever adorn her room. You have died.");
+                        
                         isDead = true;
                     } else if (inputValue.toLowerCase().trim().equals("b")) {
                         currentPosition = 2;
@@ -76,10 +74,69 @@ public class Main {
                         System.out.println("Invalid direction. Only \"E\" and \"B\" are valid");
                     }
                     break;
+                case 3:
+                    System.out.println("You follow the hall north, and find a dead end, with doors to the east and west. Remember that you can always double back.");
+                    inputValue = input.nextLine();
+                    if (inputValue.toLowerCase().trim().equals("e")) {
+                        currentPosition = 5;
+                        Sysem.out.println("You push the door open, and find a mostly empty room, with a sword leaning against the wall in the far corner. The sword seems to give off it's own light.");
+                        System.out.println("Do you wish to pick up the sword? if yes, press Y, if no, press N");
+                        inputValue = input.nextLine();
+                        if (inputValue.toLowerCase().trim().equals("Y")) {
+                            
+                            if (hasPotion = false)// working on potion if statement
+                            System.out.println("You reach out to grab the sword, but when you do, it glows brighter and burns your hand. It seems that you cannot handle this sword. At least not yet...");
+                            System.out.println("Try again? Y or N");
+                            inputValue = input.nextLine();
+                            if (inputValue.toLowerCase().trim().equals("Y")) {
+                                System.out.println("You reach out again, but no luck. Your burn grows more severe.");
+                                System.out.println("Try again?");
+                                inputValue = input.nextLine();
+                                if (inputValue.toLowerCase().trim().equals("Y")) {
+                                    System.out.println("You reach out once again, and are burned even more. You succumb to the injuries that you have sustained in your foolishness.");
+                                    isDead = True;
+                            }
+                        }
+                    }
+                        if (inputValue.toLowerCase().trim().equals("N")) {
+                            currentPosition = 5;
+                            System.out.println("Makeing the safe choice, you leave the mysterious weapon alone, and turn back.");
+                    }                        
+                }                  
+                    if (inputValue.toLowerCase().trim().equals("W")) {
+                        System.out.println("You open the door and find a shadowy figure, crouched, waiting.");
+                        if (hasSword == false) {
+                            System.out.println("As the door creaks open, the creature pounces on you, tearing you to pieces.");
+                            isDead = true;
+                        }
+                        if (hasSword == true) {
+                            System.out.println("The creature turns and pounces on you, but as if acting of it's own volition, your sword is right where it needs to be, and intercepts the moster mid-air. It falls to the ground dead, and a door in the wall behind it swings open showing the surface once again. You pass through, and find yourself near to the original entrance of the dungeon.");
+                            hasWon = true;
+                        }
+                    }
+                    break;
+                    
+                    case 4: 
+                        System.out.println("You turn west, following a long hall that seems to have a single sturdy door at the end, but suddenly, the ground under your feet caves in");
+                        if (hasFlyingShoes == false) {
+                            System.out.println("It is unclear wether the cave in was a trap, or just bad design. Either way, you are stuck. No water, no food, and no way out. ");
+                            isDead = true;
+                        }
+                        if (hasFlyingShoes == true){
+                            System.out.println("Using your flying shoes, you escape the collapse, and continue towards to door. It is unlocked. Proceed? Y or N");
+                        }
+                        inputValue = input.nextLine();
+                        if (inputValue.toLowerCase().trim().equals("Y")) {
+                            System.out.printn("You open the door and find a stone table, with a single bottle filled with a pale blue liquid. The bottle has a stopper in the shape of a sword. Do you drink the liquid in the bottle? Y or N");
+                            inputValue = input.nextLine();
+                            if (inputValue.toLowerCase().trim().equals("Y")) {
+                                System.out.println()
+                                //working on potion room
+                        }
+
+                }   
             }
         }
-    }
-
     // This method is the singular starting point of our application
     public static void main(String[] args) throws Exception {
         new Main();
