@@ -42,44 +42,11 @@ public class Dungeon {
         )
     };
 
-    public String getRoomDescription(int room) {
-        return dungeon[room].getDescription();
+    public Room getRoom(int room) {
+        return dungeon[room];
     }
 
-    public void executeAction(Action desiredAction, Direction desiredDirection, Player player) {
-        int desiredRoom = -1;
-        
-        switch (desiredAction) {
-            case MOVE:
-                desiredRoom = dungeon[player.getCurrentRoom()].getConnectingRoom(desiredDirection);
-
-                if (desiredRoom != -1) {
-                    player.setCurrentRoom(desiredRoom);
-                } else {
-                    System.out.println("You walk into a wall. Ouch!");
-                }
-                break;
-
-            case PEEK:
-                desiredRoom = dungeon[player.getCurrentRoom()].getConnectingRoom(desiredDirection);
-
-                if (desiredRoom != -1) {
-                    System.out.println(dungeon[desiredRoom].getPeekingDescription());
-                } else {
-                    System.out.println("You see a wall.");
-                }
-                break;
-
-            default:
-                break;
-        }
-
-        if (dungeon[player.getCurrentRoom()].isDeathRoom()) {
-            player.killPlayer();
-        }
-
-        if (dungeon[player.getCurrentRoom()].isWinningRoom()) {
-            player.playerWon();
-        }
+    public int getNextRoom(Direction desiredDirection, int currentRoom) {
+        return dungeon[currentRoom].getConnectingRoom(desiredDirection);
     }
 }
