@@ -43,20 +43,30 @@ public class Main {
 
             int desiredRoom = dungeon.getNextRoom(player.getDesiredDirection(), player.getCurrentRoom());
             
-            if (desiredRoom != -1) {
-                player.setCurrentRoom(desiredRoom);
-
-                System.out.println(dungeon.getRoom(desiredRoom).getDescription());
-
-                if (dungeon.getRoom(desiredRoom).isDeathRoom()) {
-                    player.killPlayer();
-                }
+            switch (player.getDesiredAction()) {
+                case MOVE:
+                    if (desiredRoom != -1) {
+                        player.setCurrentRoom(desiredRoom);
         
-                if (dungeon.getRoom(desiredRoom).isWinningRoom()) {
-                    player.playerWon();
-                }
-            } else {
-                System.out.println("You ran into a wall!");
+                        if (dungeon.getRoom(desiredRoom).isDeathRoom()) {
+                            player.killPlayer();
+                        }
+                
+                        if (dungeon.getRoom(desiredRoom).isWinningRoom()) {
+                            player.playerWon();
+                        }
+                    } else {
+                        System.out.println("You ran into a wall!");
+                    }
+                    break;
+            
+                case PEEK:
+                    if (desiredRoom != -1) {
+                        System.out.println(dungeon.getRoom(desiredRoom).getPeekingDescription());
+                    } else {
+                        System.out.println("You see a wall!");
+                    }
+                    break;
             }
         }
     }
