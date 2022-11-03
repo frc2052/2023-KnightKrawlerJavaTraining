@@ -1,23 +1,23 @@
 import java.util.Scanner;
 
+import javax.security.auth.kerberos.KerberosCredMessage;
+
 public class Main {
     // Variable to store our instanced class for receiving input
     // NOTE: notice this variable has yet to be set equal to anything, this is done on line 13
-    private Scanner input;
 
-    private String inputValue;
+    public static void main(String[] args) {
+         Scanner input;
 
-    // Variable to store the users name once they provide it
-    private String name;
-    boolean hasWon = false;
-    boolean isDead = false;
-    int currentPosition = 0;
-    boolean hasSword = false;
-    boolean hasPotion = false;
-    public Main() {
-        // ASSIGNMENT A:
-        System.out.println("Hello world!");
-
+         String inputValue;
+    
+        // Variable to store the users name once they provide it
+         String name;
+        boolean hasWon = false;
+        boolean isDead = false;
+        int currentPosition = 0;
+        boolean hasSword = false;
+        boolean hasPotion = false;
         // ASSIGNMENT B:
         // Here we "initialize" or set our variable (input) equal to a new Scanner instance that receives input from 'System.in'
         input = new Scanner(System.in);
@@ -34,6 +34,7 @@ public class Main {
         // ASSIGNMENT C:
         while (!isDead || !hasWon) {
             switch (currentPosition) {
+
                 case 0:
                     System.out.println("You are at the entrance, you can only go north. Type \"N\" to go north.");
                     inputValue = input.nextLine();
@@ -83,8 +84,7 @@ public class Main {
                         System.out.println("Do you wish to pick up the sword? if yes, press Y, if no, press N");
                         inputValue = input.nextLine();
                         if (inputValue.toLowerCase().trim().equals("Y")) {
-                            
-                            if (hasPotion = false)// working on potion if statement
+                            if (hasPotion == false) {
                             System.out.println("You reach out to grab the sword, but when you do, it glows brighter and burns your hand. It seems that you cannot handle this sword. At least not yet...");
                             System.out.println("Try again? Y or N");
                             inputValue = input.nextLine();
@@ -95,8 +95,16 @@ public class Main {
                                 if (inputValue.toLowerCase().trim().equals("Y")) {
                                     System.out.println("You reach out once again, and are burned even more. You succumb to the injuries that you have sustained in your foolishness.");
                                     isDead = True;
-                            }
+                                }
+                            } 
+                        boolean beenBurnt = true;
                         }
+                            if (hasPotion == true) {
+                                if (beenBurnt == true) {
+                                System.out.println("You succesfully pick up the sword, no nasty burns this time");
+                                }
+                                else System.out.println("You pick up the sword");
+                            }
                     }
                         if (inputValue.toLowerCase().trim().equals("N")) {
                             currentPosition = 5;
@@ -130,15 +138,24 @@ public class Main {
                             System.out.printn("You open the door and find a stone table, with a single bottle filled with a pale blue liquid. The bottle has a stopper in the shape of a sword. Do you drink the liquid in the bottle? Y or N");
                             inputValue = input.nextLine();
                             if (inputValue.toLowerCase().trim().equals("Y")) {
-                                System.out.println()
-                                //working on potion room
+                                System.out.println("Drinking the potion, there are no noticable effects");
+                                hasPotion = true;
                         }
+                    }
+                    break;
 
+                    case 5:
+                        System.out.println("you follow the hall to the west. it appears to be a dead end, except for a small alcove in the left wall, which has a pair of winged shoes tucked into it. you put them on.");
+                        hasFlyingShoes = true;
+                    break;
+                        
+                        
+                
+                
+                
+                
                 }   
             }
         }
-    // This method is the singular starting point of our application
-    public static void main(String[] args) throws Exception {
-        new Main();
-    }
+        
 }
