@@ -74,9 +74,10 @@ public class Main {
                     } else {
                         System.out.println("Invalid direction. Only \"E\" and \"B\" are valid");
                     }
-                    break;
-                    boolean hasSword = true; {
+                    { boolean hasSword = true;
                         System.out.println("With this mighty sword you can face off the scary monsters in the MoNsTeR RoOm!");
+                    break;
+        
                     }
             }
         }     
