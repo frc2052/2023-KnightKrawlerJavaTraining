@@ -4,7 +4,7 @@ public class Dungeon {
             "Room 0", 
             1, 
             -1, 
-            -1, 
+            -1,
             -1,
             false,
             false
