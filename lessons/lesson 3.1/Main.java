@@ -34,7 +34,7 @@ public class Main {
         player = new Player(input, name);
 
         // Game loop
-        while(!player.isDead() || !player.hasWon()) {
+        while(!player.isDead() && !player.hasWon()) {
             if (player.hasMoved()) {
                 System.out.println(dungeon.getRoom(player.getCurrentRoom()).getDescription());
             }
