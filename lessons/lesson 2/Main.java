@@ -35,7 +35,7 @@ public class Main {
         System.out.println("Welcome, " + name + "!");
 
         // ASSIGNMENT C:
-        while (!isDead || !hasWon) {
+        while (!isDead && !hasWon) {
             switch (currentPosition) {
                 case 0:
                     System.out.println("You are at the entrance, you can only go north. Type \"N\" to go north.");
