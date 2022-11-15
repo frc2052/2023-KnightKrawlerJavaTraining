@@ -14,6 +14,13 @@ public class Main {
 
       private Boolean isDead = false;
       private Boolean hasWon = false;
+      
+      enum Direction{
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
+    }
 
     public Main() {
         // ASSIGNMENT A:
@@ -33,7 +40,7 @@ public class Main {
         System.out.println("Welcome, " + name + "!");
 
         // ASSIGNMENT C 
-        while (!isDead || !hasWon) {
+        while (!isDead && !hasWon) {
             switch (currentPosition) {
                 case 0:
                     System.out.println("You are at the entrance, you can only go north. Type \"N\" to go north.");
@@ -74,30 +81,17 @@ public class Main {
                     } else {
                         System.out.println("Invalid direction. Only \"E\" and \"B\" are valid");
                     }
-                    { boolean hasSword = true;
+                    { boolean hasSword = true; 
                         System.out.println("With this mighty sword you can face off the scary monsters in the MoNsTeR RoOm!");
-                    break;
+                    break; }
         
                     }
-            }
-        }     
+            } }  
+             
 
-    }
         
         // This method is the singular starting point of our application
     public static void main(String[] args) throws Exception {
         new Main();
-        public enum Direction {
-            NORTH,
-            EAST,
-            SOUTH,
-            WEST
-        }
-            public class Player {
-                public Player (Scanner input, String name){
-                    this.input = input;
-                    this.name = name;
-                }
-            }
     }
 }
