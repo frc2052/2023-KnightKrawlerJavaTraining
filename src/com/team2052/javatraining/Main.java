@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+enum Direction{
+    NORTH,
+    EAST,
+    SOUTH,
+    WEST
+}
+
 public class Main {
     // Variable to store our instanced class for receiving input
     // NOTE: notice this variable has yet to be set equal to anything, this is done on line 13
@@ -13,9 +20,9 @@ public class Main {
     //Current player position
     int currentPosition = 0;
 
-    boolean isDead = false;
-    boolean hasWon = false;
-    boolean hasSword = false;
+    private boolean isDead = false;
+    private boolean hasWon = false;
+    private boolean hasSword = false;
 
     public Main() {
         // ASSIGNMENT A:
