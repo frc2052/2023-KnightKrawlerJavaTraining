@@ -87,8 +87,7 @@ public class Main {
         
                     }
             } }  
-             
-
+    
         
         // This method is the singular starting point of our application
     public static void main(String[] args) throws Exception {

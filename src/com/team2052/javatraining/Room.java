@@ -1,5 +1,5 @@
 public class Room {
-    private boolean visted = false;
+    private boolean visited = false;
     private final String description; 
 
     public final int northConnectedRoom;
@@ -17,16 +17,17 @@ public class Room {
         int westConnectedRoom,
         boolean inDeathRoom,
         boolean inWinningRoom
-         ){
-            this.description = description;
-            this.northConnectedRoom = northConnectedRoom;
-            this.southConnectedRoom = southConnectedRoom;
-            this.eastConnectedRoom = eastConnectedRoom;
-            this.westConnectedRoom = westConnectedRoom;
-            this.isDeathRoom = isDeathRoom;
-            this.isWinningRoom = isWinningRoom;
-         }
-    pubic String getDescription() {
+    ){
+        this.description = description;
+        this.northConnectedRoom = northConnectedRoom;
+        this.southConnectedRoom = southConnectedRoom;
+        this.eastConnectedRoom = eastConnectedRoom;
+        this.westConnectedRoom = westConnectedRoom;
+        this.isDeathRoom = inDeathRoom;
+        this.isWinningRoom = inWinningRoom;
+    }
+
+     public String getDescription(){
         String modifiedDescription;
         if (visited) { 
             modifiedDescription = "you have re-entered" + description; }
@@ -34,6 +35,30 @@ public class Room {
             modifiedDescription = "you have entered" + description; }
             return modifiedDescription;
     }
-    public int getConnectingRoom(Direction direction){}
+    public int getConnectingRoom(Direction direction) {
+       switch (direction) {
+           case NORTH:
+            return northConnectedRoom;
+
+            case SOUTH:
+            return southConnectedRoom;
+
+            case EAST:
+            return eastConnectedRoom;
+
+            case WEST:
+            return westConnectedRoom;
+
+            default:
+            return -1;
+
+       }
+    }
+    public boolean isDeathRoom() {
+        return isDeathRoom;
+    }
+    public boolean isWinningRoom() {
+        return isWinningRoom();
+    }
 }
 

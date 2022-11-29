@@ -3,7 +3,7 @@ public class Dungeon {
         new Room(
             "Room 0", 
             "Peeking at Room 0", 
-            1, 
+            1,
             -1, 
             -1, 
             -1,
