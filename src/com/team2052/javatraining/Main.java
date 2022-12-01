@@ -10,10 +10,13 @@ public class Main {
     // Variable to store the users name once they provide it
     private String name;
       // Keeps track of the current location, 0 is the beginning of the dungeon
-      private int currentPosition = 0;
+    private final Dungeon dungeon;
 
-      private Boolean isDead = false;
-      private Boolean hasWon = false;
+    private final Player player;
+
+
+
+      
       
       enum Direction{
         NORTH,
@@ -24,6 +27,8 @@ public class Main {
 
     public Main() {
         // ASSIGNMENT A:
+        dungeon = new Dungeon();
+        player = new Player(input, name);
         System.out.println("Hello world!");
 
         // ASSIGNMENT B:
@@ -39,6 +44,9 @@ public class Main {
         // Prints a customized welcome message for the user
         System.out.println("Welcome, " + name + "!");
 
+        while (!player.isDead() || !player.hasWon){
+
+        }
         // ASSIGNMENT C 
         while (!isDead && !hasWon) {
             switch (currentPosition) {
@@ -87,10 +95,12 @@ public class Main {
         
                     }
             } }  
-    
         
-        // This method is the singular starting point of our application
+
+            // This method is the singular starting point of our application
     public static void main(String[] args) throws Exception {
         new Main();
+        
+
     }
 }
