@@ -56,7 +56,6 @@ public class Rooms {
                     return -1;
             }
         }
-    
         public boolean isDeathRoom() {
             return isDeathRoom;
         }

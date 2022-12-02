@@ -4,7 +4,7 @@ public class Player {
     private final Scanner input;
     private final String name;
     private Direction  desiredDirection;
-    private int currentRoom;
+    private int currentRoom = 0;
     private boolean moved = true;
     private boolean isDead = false;
     private boolean hasWon = false;

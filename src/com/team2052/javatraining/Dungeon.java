@@ -62,9 +62,12 @@ public class Dungeon {
 
     };
 
-
-
     public Rooms getRoom(int room){
         return dungeon [room];
+    }
+
+
+    public int getNextRoom(Direction desiredDirection, int currentRoom) {
+        return dungeon[currentRoom].getConnectingRoom(desiredDirection);
     }
 }
