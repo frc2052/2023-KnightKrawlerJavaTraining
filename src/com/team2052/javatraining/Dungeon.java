@@ -1,7 +1,7 @@
 public class Dungeon {
     private final Room[] dungeon = {
         new Room(
-            "Roon C", //room 0
+            "Room C", //room 0
             1,
             -1,
             -2,
@@ -51,7 +51,7 @@ public class Dungeon {
         return dungeon [room];
         }
         public int getNextRoom(Direction desiredDirection, int currentRoom) {
-            return dungeon[currentRoom].getConnectingRoom(currentroom);
+            return dungeon[currentRoom].getConnectingRoom(desiredDirection);
             
         }
 

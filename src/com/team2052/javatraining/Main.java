@@ -1,55 +1,62 @@
 import java.util.Scanner;
+enum Direction {
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST
+}
 
-public class Main {
-    // Variable to store our instanced class for receiving input
-    // NOTE: notice this variable has yet to be set equal to anything, this is done on line 13
+    public class Main {
+   
     private Scanner input;
-
-    private String inputValue;
-
-    // Variable to store the users name once they provide it
+    
     private String name;
-      // Keeps track of the current location, 0 is the beginning of the dungeon
+
     private final Dungeon dungeon;
 
     private final Player player;
-
-
-
-      
-      
-      enum Direction{
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST
-    }
-
+    
+    
     public Main() {
-        // ASSIGNMENT A:
+
         dungeon = new Dungeon();
         player = new Player(input, name);
-        System.out.println("Hello world!");
-
-        // ASSIGNMENT B:
-        // Here we "initialize" or set our variable (input) equal to a new Scanner instance that receives input from 'System.in'
         input = new Scanner(System.in);
 
-        // Asks the user to input their name through the console
         System.out.println("Please enter your name below:");
         
-        // Gets the next available user input and sets the name variable to that input
         name = input.nextLine();
 
-        // Prints a customized welcome message for the user
         System.out.println("Welcome, " + name + "!");
+    
+        while (!player.setIsDead() || !player.setHasWon()){
+            if(player.getMoved()){
+                System.out.println(dungeon.getRoom(player.getCurrentRoom()).getDescription());
+                player.processUserInput(); 
+                int desiredRoom = (dungeon.getNextRoom(player.getDesiredDirection(), player.getCurrentRoom()));
+               
+                
+                        if (desiredRoom != -1) {
+                            player.setCurrentRoom(desiredRoom);
+            
+                            if (dungeon.getRoom(desiredRoom).isDeathRoom()) {
+                                player.killPlayer();
+                            }
+                    
+                            if (dungeon.getRoom(desiredRoom).isWinningRoom()) {
+                                player.playerWon();
+                            }
+                        } else {
+                            System.out.println("You slammed into a wall!");
+                        }
+                        break;
+                
 
-        while (!player.isDead() || !player.hasWon){
-
+                }
+            }
         }
-        // ASSIGNMENT C 
-        while (!isDead && !hasWon) {
-            switch (currentPosition) {
+
+       /*     switch (currentPosition) {
                 case 0:
                     System.out.println("You are at the entrance, you can only go north. Type \"N\" to go north.");
                     inputValue = input.nextLine();
@@ -92,15 +99,13 @@ public class Main {
                     { boolean hasSword = true; 
                         System.out.println("With this mighty sword you can face off the scary monsters in the MoNsTeR RoOm!");
                     break; }
-        
-                    }
-            } }  
+                        */
+                
+             
         
 
             // This method is the singular starting point of our application
     public static void main(String[] args) throws Exception {
-        new Main();
-        
-
+        new Main();   
     }
 }

@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Player {
     private final Scanner input; 
     private final String name;
-    private Action desiredAction;
     private Direction desiredDirection;
     private int currentRoom;
     private boolean moved = true;
@@ -38,7 +37,7 @@ public class Player {
                 case "w":
                     desiredDirection = Direction.WEST;
                 case "h":
-                    System.out.println("Print Help Menu");
+                    System.out.println();
                     break;
             
                 default:
@@ -58,7 +57,7 @@ public class Player {
 
     public void setCurrentRoom(int room) {
         if (currentRoom != room) {
-                boolean moved = true;
+            moved = true;
             currentRoom = room;
         }
     }
@@ -68,7 +67,13 @@ public class Player {
     public boolean setIsDead() {
         return isDead;
     }
+    public void killPlayer(){
+        isDead = true;
+    }
     public boolean setHasWon() {
         return hasWon;
+    }
+    public void playerWon(){
+        hasWon = true;
     }
 }
