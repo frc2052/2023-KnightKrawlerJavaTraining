@@ -20,9 +20,7 @@ public class Player {
     
     public void processUserInput() {
         moved = false;
-    
-        System.out.print("What's your move " + name + "? ");
-    
+        System.out.print("What's your move " + name + "? (Press 'h' for help)");
         while (true) {            
             switch (getUserInput()) {
                 case "n":

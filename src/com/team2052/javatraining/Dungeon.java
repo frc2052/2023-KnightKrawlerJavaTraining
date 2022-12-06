@@ -16,7 +16,7 @@ public class Dungeon {
             0,
             2,
             -1,
-            true,
+            false,
             false    
         ),
 
@@ -32,7 +32,7 @@ public class Dungeon {
 
         new Rooms(
             "Room Eagle", //room 3
-            5,
+            2,
             4,
             0,
             1,

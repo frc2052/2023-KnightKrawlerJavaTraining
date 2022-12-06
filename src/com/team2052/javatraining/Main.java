@@ -13,18 +13,19 @@ public class Main {
 
          //initialize stuff
         dungeon = new Dungeon();
-        
-        player = new Player(input, name);
+
+        input = new Scanner(System.in);
 
         System.out.println("Hello player!");
 
         // ASSIGNMENT B:
         // Here we "initialize" or set our variable (input) equal to a new Scanner instance that receives input from 'System.in'
-        input = new Scanner(System.in);
 
         System.out.println("Please enter your name below:");
         
         name = input.nextLine();
+
+        player = new Player(input, name);
 
         System.out.println("Welcome, " + name + "!");
 
@@ -42,12 +43,11 @@ public class Main {
                         player.playerWins();
                     }
                     if (dungeon.getRoom(desiredRoom).isDeathRoom()){
-                        System.out.println("you suck");
+                        System.out.println("you dead now");
                         player.killPlayer();
                     }
                 else    
                     System.out.println("You smacked into a wall");
-
                 break;
 
         }

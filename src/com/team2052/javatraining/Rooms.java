@@ -1,5 +1,4 @@
 public class Rooms {
-        private boolean visited = false;
         private final String description;
         public final int northConnectedRoom;
         public final int southConnectedRoom;
@@ -29,15 +28,10 @@ public class Rooms {
     
         public String getDescription() {
             String modifiedDescription;
-    
-            if (visited) {
-                modifiedDescription = "you re-enter " + description;
-            } else {
-                modifiedDescription = "you choose to enter " + description;
-            }
-    
+            modifiedDescription = "You choose to enter " + description;
             return modifiedDescription;
         }
+        
         public int getConnectingRoom(Direction direction) {
             switch (direction) {
                 case NORTH:
