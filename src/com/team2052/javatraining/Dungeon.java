@@ -2,10 +2,10 @@ public class Dungeon {
     private final Rooms[]dungeon = {
         new Rooms(
             "Room Alligator", //room 0
-            3,
+            1,
             -1,
             4,
-            2,
+            3,
             false,
             false
         ),

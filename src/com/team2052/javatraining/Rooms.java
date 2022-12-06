@@ -31,7 +31,7 @@ public class Rooms {
             modifiedDescription = "You choose to enter " + description;
             return modifiedDescription;
         }
-        
+
         public int getConnectingRoom(Direction direction) {
             switch (direction) {
                 case NORTH:

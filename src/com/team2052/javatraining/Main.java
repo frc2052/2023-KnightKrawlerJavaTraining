@@ -37,19 +37,25 @@ public class Main {
 
                 int desiredRoom = (dungeon.getNextRoom(player.getDesiredDirection(),player.getCurrentRoom()));
 
-                if (desiredRoom != -1)
+                if (desiredRoom == -1){
+                    System.out.println("You smacked into a wall");
+                }
+
+                if (desiredRoom != -1){
                     if (dungeon.getRoom(desiredRoom).isWinningRoom()){
                         System.out.println("Congrats, you have escaped the dungeon!");
                         player.playerWins();
+                        break;
                     }
                     if (dungeon.getRoom(desiredRoom).isDeathRoom()){
                         System.out.println("you dead now");
                         player.killPlayer();
+                        break;
                     }
-                else    
-                    System.out.println("You smacked into a wall");
-                break;
-
+                     else {
+                         player.setCurrentRoom(desiredRoom);
+                     }
+                    }
         }
     }
     // This method is the singular starting point of our application
