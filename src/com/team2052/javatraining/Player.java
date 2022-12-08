@@ -20,7 +20,7 @@ public class Player {
 
     public void processUserInput() {
         moved = false;
-        System.out.println("What's your move " + name + "? " );
+        System.out.println("What's your move " + name + "? (press h for help)" );
         while (true) {
             switch (getUserInput()) {
                 case "n":
@@ -33,11 +33,14 @@ public class Player {
 
                 case "e":
                     desiredDirection = Direction.EAST;
+                    return;
 
                 case "w":
                     desiredDirection = Direction.WEST;
+                    return;
+
                 case "h":
-                    System.out.println();
+                    System.out.println("NESW to move");
                     break;
             
                 default:
